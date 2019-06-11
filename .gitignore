@@ -8,21 +8,18 @@
 # https://www.gitignore.io/
 
 # +--------------------------------------------------+
-# | Project                                          |
+# | Custom entries                                   |
 # +--------------------------------------------------+
-
-data/
-*_cache/
-packrat/lib*/
-.Rproj.user
-rsconnect/
 
 # +--------------------------------------------------+
 # | R                                                |
 # +--------------------------------------------------+
 
-# TODO file
-TODO.txt
+# RStudio Project
+data/
+packrat/lib*/
+.Rproj.user
+rsconnect/
 
 # History files
 .Rhistory
@@ -32,17 +29,14 @@ TODO.txt
 .RData
 .Ruserdata
 
+# TODO file
+TODO.txt
+
 # Output files from R CMD build
 /*.tar.gz
 
 # Output files from R CMD check
 /*.Rcheck/
-
-# RStudio files
-.Rproj.user
-
-# Packrat
-packrat/lib*/
 
 # produced vignettes
 vignettes/*.html
