@@ -1,0 +1,85 @@
+---
+title: "Peer-graded Assignment: R Markdown and Leaflet"
+author: "Jeffrey M. Hunter"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: no
+    toc_float: yes
+    theme: cosmo
+    keep_md: no
+    df_print: paged
+  pdf_document:
+    toc: yes
+    df_print: kable
+    number_sections: false
+    fig_caption: yes
+    highlight: tango
+    dev: pdf
+  word_document:
+    toc: yes
+    df_print: paged
+    keep_md: no
+---
+
+## Synopsis
+
+This webpage was created for the Developing Data Products course as part of the
+Data Science Specialization offered through Coursera from Johns Hopkins
+University.
+
+## My Hot Wing Locations
+
+The page was built in RStudio using R Markdown and the Leaflet package to
+build an interactive map of my favorite hot wing locations. Attempting to
+explain my addiction to really good hot wings is beyond the scope of this
+assignment. And yes, it is an addiction!
+
+The source code for this project can be found on
+GitHub: <a target="_blank" href="https://github.com/oraclejavanet/developing-data-products-course-project-1">Developing Data Products Course Project 1</a>
+
+```{r setup, include = FALSE}
+# set knitr options
+knitr::opts_chunk$set(echo = TRUE, fig.path = 'figures/')
+
+# clear the global workspace (including hidden objects)
+rm(list = ls(all.names = TRUE))
+
+# set working directory
+setwd("~/repos/coursera/github-assignments/developing-data-products-course-project-1")
+
+# free up memory and display statistics on free memory
+gc()
+```
+
+```{r hot-wing-locations-map, message = FALSE, echo = TRUE}
+library(knitr)
+library(leaflet)
+
+hwIcon <- makeIcon(
+  iconUrl = "images/buffalo-wing.png",
+  iconWidth = 25,
+  iconHeight = 50
+)
+
+hwLocations <- data.frame(name = c("Quaker Steak",
+                                   "Buffalo Wild Wings",
+                                   "Villa Grande"),
+                          lat = c(40.684667,
+                                  40.45082,
+                                  40.867617),
+                          lng = c(-80.109943,
+                                  -80.182565,
+                                  -79.922441))
+
+hwPopup <- c(
+  "<a href = 'http://thelube.com/' target = '_blank'>Quaker Steak and Lube</a>",
+  "<a href = 'https://www.buffalowildwings.com/' target = '_blank'>Buffalo Wild Wings</a>",
+  "<a href = 'http://www.villagrandeonline.com/' target = '_blank'>Villa Grande</a>"
+)
+
+hwLocations %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = hwIcon, popup = hwPopup)
+```
