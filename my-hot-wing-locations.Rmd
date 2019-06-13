@@ -28,15 +28,15 @@ This webpage was created for the Developing Data Products course as part of the
 Data Science Specialization offered through Coursera from Johns Hopkins
 University.
 
+The source code for this project can be found on
+GitHub: <a target="_blank" href="https://github.com/oraclejavanet/developing-data-products-course-project-1">Developing Data Products Course Project 1</a>
+
 ## My Hot Wing Locations
 
 The page was built in RStudio using R Markdown and the Leaflet package to
 build an interactive map of my favorite hot wing locations. Attempting to
 explain my addiction to really good hot wings is beyond the scope of this
 assignment. And yes, it is an addiction!
-
-The source code for this project can be found on
-GitHub: <a target="_blank" href="https://github.com/oraclejavanet/developing-data-products-course-project-1">Developing Data Products Course Project 1</a>
 
 ```{r setup, include = FALSE}
 # set knitr options
@@ -64,16 +64,20 @@ hwIcon <- makeIcon(
 
 hwLocations <- data.frame(name = c("Quaker Steak",
                                    "Buffalo Wild Wings",
+                                   "Buffalo Wild Wings",
                                    "Villa Grande"),
                           lat = c(40.684667,
+                                  40.68623,
                                   40.45082,
                                   40.867617),
                           lng = c(-80.109943,
+                                  -80.101728,
                                   -80.182565,
                                   -79.922441))
 
 hwPopup <- c(
   "<a href = 'http://thelube.com/' target = '_blank'>Quaker Steak and Lube</a>",
+  "<a href = 'https://www.buffalowildwings.com/' target = '_blank'>Buffalo Wild Wings</a>",
   "<a href = 'https://www.buffalowildwings.com/' target = '_blank'>Buffalo Wild Wings</a>",
   "<a href = 'http://www.villagrandeonline.com/' target = '_blank'>Villa Grande</a>"
 )
