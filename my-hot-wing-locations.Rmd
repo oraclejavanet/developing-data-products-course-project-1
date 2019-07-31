@@ -46,7 +46,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.path = 'figures/')
 rm(list = ls(all.names = TRUE))
 
 # set working directory
-setwd("~/repos/coursera/github-assignments/developing-data-products-course-project-1")
+setwd("~/repos/coursera/data-science-specialization-github-assignments/developing-data-products-course-project-1")
 
 # free up memory and display statistics on free memory
 gc()
